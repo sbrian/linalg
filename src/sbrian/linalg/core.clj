@@ -9,13 +9,6 @@
        (if (not (= (count a) (count b))) (raise :matrix-error :invalid-matrix :arg 'a :value a))
        b) a))
                                                                     
-(defn- add- [a b]
-  (map (fn [a b]
-    (map (fn [a b] (+ a b)) a b)) a b))
-
-(defn add [a b]
-  (vectorize (add- a b)))
-
 (defn scalar [scalar a]
   (validate-matrix a)
   (map (fn [a]
@@ -28,6 +21,13 @@
   (if (and (not (vector? a)) (seq? a))
     (apply vector (map this a))
     a)))
+
+(defn- add- [a b]
+  (map (fn [a b]
+    (map (fn [a b] (+ a b)) a b)) a b))
+
+(defn add [a b]
+  (vectorize (add- a b)))
 
 (defn transpose [a]
   (validate-matrix a)
