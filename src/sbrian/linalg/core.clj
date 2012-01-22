@@ -47,4 +47,10 @@
   (validate-matrix b)
   (vectorize (matrix-prod- a b)))
 
+(defn rotation-matrix-2d [a]
+  [[(Math/cos a) (Math/sin a)] [(- 0 (Math/sin a)) (Math/cos a)]])
+
+(defn rotate-2d [m a]
+  (matrix-prod (rotation-matrix-2d a) m))
+
 
