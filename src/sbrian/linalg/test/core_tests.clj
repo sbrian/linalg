@@ -24,5 +24,15 @@
   
   (is (= [[55 42] [20 12]] (transpose [[55 20] [42 12]]))))
 
+(deftest test-echelon-column?
+  (is (echelon-column? [[1 0][0 1]] 0))
+  (is (echelon-column? [[1 0][0 1]] 1))
+  (is (= [0 1] (echelon-column? [[1 1][0 1]] 0)))
+  (is (= [0 1] (echelon-column? [[1 0][1 1]] 1)))
+  (is (echelon-column? [[-1 0][0 1]] 0))
+  (is (= [0 1] (echelon-column? [[-1 -1][0 1]] 0)))
+  (is (echelon-column? [[1 0 0] [0 1 0] [0 0 1]] 1))
+  (is (= [1 2] (echelon-column? [[1 0 0] [0 1 1] [0 0 1]] 1))))
+
 
 
