@@ -1,29 +1,7 @@
 (ns sbrian.linalg.visual
   (:use sbrian.linalg.core)
-  (import com.sbrian.simplegraphics.View))
-
-(def ^{:private true} view (new View))
-
-(defn clear-view []
-  (. view clear))
-
-(defn show-v [v]
-  (. view setVisible true)
-  (. view (setPoint (v 0) (v 1)))
-  v)
-
-(defn hide-v [v]
-  (. view (unsetPoint (v 0) (v 1)))
-  v)
-
-(defn show-m [a]
-    (. view setVisible true)
-    (doall (map show-v a))
-    a)
-
-(defn hide-m [a]
-  (doall (map hide-v a))
-  a)
+  (:use sbrian.plotting.core)
+  (:use sbrian.plotting.shapes))
 
 (defn timed-rotate-m [m ms]
   (show-m m)
@@ -36,6 +14,7 @@
       (hide-m mm)
       (recur (show-m (rotate-2d mm 0.1)) (+ 0.1 rotated))))))
 
-
-
-
+(defn rotate-rectangle []
+  (timed-rotate-m (rectangle 5 5 10 5 2) 2000))
+  
+  

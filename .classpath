@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="clojure-contrib.jar" sourcepath="clojure-contrib-src.jar"/>
 	<classpathentry kind="lib" path="classes"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/simplegraphics"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/plotting"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
